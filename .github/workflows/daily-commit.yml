@@ -1,8 +1,8 @@
-name: Daily Commit
+name: Daily Commit by 21f1001577@ds.study.iitm.ac.in
 
 on:
   schedule:
-    - cron: "30 5 * * *"
+    - cron: "30 5 * * *" # Runs daily at 05:30 UTC (11:00 AM IST)
   workflow_dispatch:
 
 jobs:
@@ -15,8 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 👇 Must include your email exactly here
-      - name: Daily commit by 21f1001577@ds.study.iitm.ac.in
+      - name: Make daily commit
         run: |
           echo "Automated commit on $(date -u)" >> daily-log.txt
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
